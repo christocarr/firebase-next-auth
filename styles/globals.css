@@ -6,3 +6,19 @@ body {
   background-color: 'white';
   height: 100vh;
 }
+
+form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  border: 1px black solid;
+  border-radius: 10px;
+  padding: 2em;
+  margin-bottom: 1em;
+}
+
+input {
+  border: 1px black solid;
+  border-radius: 5px;
+  margin-bottom: 0.5em;
+}
