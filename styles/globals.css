@@ -9,20 +9,29 @@ body {
 
 h2 {
   font-size: 1.4rem;
+  color: #464646;
 }
 
 form {
   display: flex;
   width: 100%;
   flex-direction: column;
-  border: 1px black solid;
+  border: 1px #464646 solid;
   border-radius: 10px;
   padding: 1em 2em 2em 2em;
   margin-bottom: 1em;
 }
 
+label {
+  color: #464646;
+}
+
+p {
+  color: #464646;
+}
+
 input {
-  border: 1px black solid;
+  border: 1px #464646 solid;
   border-radius: 5px;
   margin-bottom: 0.5em;
 }
@@ -32,7 +41,8 @@ input:last-of-type {
 }
 
 button {
-  border: 1px black solid;
+  color: #464646;
+  border: 1px #464646 solid;
   border-radius: 5px;
   padding: 0.2em 0;
 }

@@ -13,7 +13,7 @@ function Login({ handleIsRegistered }) {
       </form>
       <p>
         Don't have an account?{' '}
-        <span className="underline to-blue-500" onClick={handleIsRegistered}>
+        <span className="underline text-blue-700" onClick={handleIsRegistered}>
           Register
         </span>
       </p>

@@ -28,7 +28,7 @@ function Register({ handleIsRegistered }) {
       </form>
       <p>
         Already have an account?{' '}
-        <span className="underline to-blue-500" onClick={handleIsRegistered}>
+        <span className="underline text-blue-700" onClick={handleIsRegistered}>
           Log in
         </span>
       </p>
