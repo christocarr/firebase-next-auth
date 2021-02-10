@@ -7,13 +7,17 @@ body {
   height: 100vh;
 }
 
+h2 {
+  font-size: 1.4rem;
+}
+
 form {
   display: flex;
   width: 100%;
   flex-direction: column;
   border: 1px black solid;
   border-radius: 10px;
-  padding: 2em;
+  padding: 1em 2em 2em 2em;
   margin-bottom: 1em;
 }
 
@@ -21,4 +25,14 @@ input {
   border: 1px black solid;
   border-radius: 5px;
   margin-bottom: 0.5em;
+}
+
+input:last-of-type {
+  margin-bottom: 0.7em;
+}
+
+button {
+  border: 1px black solid;
+  border-radius: 5px;
+  padding: 0.2em 0;
 }
