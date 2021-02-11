@@ -22,7 +22,7 @@ export default function Home() {
       </Head>
 
       <main className="w-screen h-screen flex flex-col justify-center items-center">
-        <div className="flex flex-col justify-center items-center max-w-md md:max-w-xl">
+        <div className="flex flex-col justify-center items-center w-5/6 max-w-sm">
           {!isRegistered ? (
             <Register handleIsRegistered={handleIsRegistered} />
           ) : (
