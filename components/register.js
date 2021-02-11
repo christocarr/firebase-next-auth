@@ -1,13 +1,39 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import { useAuth } from '../context/authContext';
 
 function Register({ handleIsRegistered }) {
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
 
+  const { register, currentUser } = useAuth();
+
+  async function handleSubmit(ev) {
+    ev.preventDefault();
+
+    if (currentUser.email === emailRef.current.value) {
+      return setError('This email is already registered. Please log in.');
+    }
+
+    if (passwordRef.current.value !== confirmPasswordRef.current.value) {
+      return setError('Passwords do not match.');
+    }
+
+    try {
+      setError('');
+      setLoading(true);
+      await register(emailRef.current.value, passwordRef.current.value);
+    } catch {
+      setError('Can not register your credentials. Please try again.');
+    }
+    setLoading(false);
+  }
+
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2 className="mb-2 text-center">Register</h2>
         <label htmlFor="username">Username</label>
         <input id="usernmame" type="email" required ref={emailRef} />
@@ -20,7 +46,12 @@ function Register({ handleIsRegistered }) {
           required
           ref={confirmPasswordRef}
         />
-        <button type="submit">Register</button>
+        {error ? (
+          <p className="text-center text-red-500 mb-1">{error}</p>
+        ) : null}
+        <button disabled={loading} type="submit">
+          Register
+        </button>
       </form>
       <p>
         Already have an account?{' '}
