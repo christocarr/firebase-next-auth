@@ -1,10 +1,6 @@
-import { useState, useRef } from 'react';
-import Link from 'next/link';
+import { useRef } from 'react';
 
 function Register({ handleIsRegistered }) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
@@ -28,7 +24,10 @@ function Register({ handleIsRegistered }) {
       </form>
       <p>
         Already have an account?{' '}
-        <span className="underline text-blue-700" onClick={handleIsRegistered}>
+        <span
+          className="underline text-blue-700 cursor-pointer"
+          onClick={handleIsRegistered}
+        >
           Log in
         </span>
       </p>
