@@ -13,7 +13,7 @@ function Register({ handleIsRegistered }) {
   async function handleSubmit(ev) {
     ev.preventDefault();
 
-    if (currentUser.email === emailRef.current.value) {
+    if (currentUser && currentUser.email === emailRef.current.value) {
       return setError('This email is already registered. Please log in.');
     }
 
@@ -47,7 +47,11 @@ function Register({ handleIsRegistered }) {
           ref={confirmPasswordRef}
         />
         {error ? (
-          <p className="text-center text-red-500 mb-1">{error}</p>
+          <div className="bg-red-200 p-1 mb-2">
+            <p className="text-center text-red-600 mb-1 font-semibold">
+              {error}
+            </p>
+          </div>
         ) : null}
         <button disabled={loading} type="submit">
           Register
