@@ -37,7 +37,7 @@ input {
   border: 1px #0000003d solid;
   border-radius: 5px;
   margin-bottom: 0.5em;
-  padding: 0.2em 0.2em;
+  padding: 0.2em 0.5em;
 }
 
 input:last-of-type {
