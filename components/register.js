@@ -1,12 +1,15 @@
 import { useRef, useState } from 'react';
+import { useRouter } from 'next/router';
 import { useAuth } from '../context/authContext';
 
-function Register({ handleIsRegistered }) {
+function Register() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
+
+  const router = useRouter();
 
   const { register, currentUser } = useAuth();
 
@@ -25,6 +28,7 @@ function Register({ handleIsRegistered }) {
       setError('');
       setLoading(true);
       await register(emailRef.current.value, passwordRef.current.value);
+      router.push('/');
     } catch {
       setError('Can not register your credentials. Please try again.');
     }
@@ -61,7 +65,7 @@ function Register({ handleIsRegistered }) {
         Already have an account?{' '}
         <span
           className="underline text-blue-700 cursor-pointer"
-          onClick={handleIsRegistered}
+          onClick={() => router.push('/login')}
         >
           Log in
         </span>

@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useRouter } from 'next/router';
 
-function Login({ handleIsRegistered }) {
+function Login() {
+  const router = useRouter();
   return (
     <>
       <form>
@@ -15,7 +16,7 @@ function Login({ handleIsRegistered }) {
         Don't have an account?{' '}
         <span
           className="underline text-blue-700 cursor-pointer"
-          onClick={handleIsRegistered}
+          onClick={() => router.push('/register')}
         >
           Register
         </span>
