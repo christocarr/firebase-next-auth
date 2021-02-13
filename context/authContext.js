@@ -24,9 +24,14 @@ export function AuthProvider({ children }) {
     return appAuth.createUserWithEmailAndPassword(email, password);
   }
 
+  function loginUser(email, password) {
+    return appAuth.signInWithEmailAndPassword(email, password);
+  }
+
   const value = {
     currentUser,
     register,
+    loginUser,
   };
 
   return (
