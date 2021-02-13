@@ -1,16 +1,47 @@
+import { useState, useRef } from 'react';
 import { useRouter } from 'next/router';
+import { useAuth } from '../context/authContext';
 
 function Login() {
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
   const router = useRouter();
+
+  const { loginUser } = useAuth();
+
+  async function handleSubmit(ev) {
+    ev.preventDefault();
+    try {
+      setError('');
+      setLoading(true);
+      await loginUser(emailRef.current.value, passwordRef.current.value);
+      router.push('/');
+    } catch {
+      setError('Incorrect email and password.');
+    }
+    setLoading(false);
+  }
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2 className="mb-2 text-center">Log in</h2>
         <label htmlFor="username">Username</label>
-        <input id="usernmame" type="text" required />
+        <input id="usernmame" type="text" required ref={emailRef} />
         <label htmlFor="password">Password</label>
-        <input id="password" type="password" required />
-        <button type="submit">Log in</button>
+        <input id="password" type="password" required ref={passwordRef} />
+        {error ? (
+          <div className="bg-red-200 p-1 mb-2">
+            <p className="text-center text-red-600 mb-1 font-semibold">
+              {error}
+            </p>
+          </div>
+        ) : null}
+        <button disabled={loading} type="submit">
+          Log in
+        </button>
       </form>
       <p>
         Don't have an account?{' '}
