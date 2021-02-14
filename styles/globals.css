@@ -5,48 +5,5 @@
 body {
   background-color: 'white';
   height: 100vh;
-}
-
-h2 {
-  font-weight: bolder;
-  font-size: 1.4rem;
   color: #464646;
-}
-
-form {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  /* border: 1px #969696 solid; */
-  border-radius: 10px;
-  padding: 1em 2em 2em 2em;
-  margin-bottom: 1em;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-label {
-  color: #464646;
-  font-size: 0.9rem;
-}
-
-p {
-  color: #464646;
-}
-
-input {
-  border: 1px #0000003d solid;
-  border-radius: 5px;
-  margin-bottom: 0.5em;
-  padding: 0.2em 0.5em;
-}
-
-input:last-of-type {
-  margin-bottom: 0.7em;
-}
-
-button {
-  color: white;
-  background-color: cornflowerblue;
-  border-radius: 5px;
-  padding: 0.3em 0;
 }
