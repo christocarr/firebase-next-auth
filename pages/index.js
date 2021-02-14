@@ -1,16 +1,9 @@
 import Head from 'next/head';
-import Register from '../components/register';
-import Login from '../components/login';
-
-import { useState } from 'react';
+import Link from 'next/link';
+import { useAuth } from '../context/authContext';
 
 export default function Home() {
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isRegistered, setIsRegistered] = useState(false);
-
-  const handleIsRegistered = () => {
-    isRegistered ? setIsRegistered(false) : setIsRegistered(true);
-  };
+  const { signOutUser } = useAuth;
 
   return (
     <div>
@@ -20,15 +13,12 @@ export default function Home() {
         <link rel="icon" href="" /> 
         */}
       </Head>
-
+      <Link href="/user-profile">Profile</Link>
+      <Link href="/login" OnClick={() => signOutUser}>
+        Sign out
+      </Link>
       <main className="w-screen h-screen flex flex-col justify-center items-center">
-        <div className="flex flex-col justify-center items-center w-5/6 max-w-sm">
-          {!isRegistered ? (
-            <Register handleIsRegistered={handleIsRegistered} />
-          ) : (
-            <Login handleIsRegistered={handleIsRegistered} />
-          )}
-        </div>
+        <div className="flex flex-col justify-center items-center w-5/6 max-w-sm"></div>
       </main>
     </div>
   );
