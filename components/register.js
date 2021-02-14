@@ -1,6 +1,10 @@
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/authContext';
+import FormButton from './FormButton';
+import Form from '../components/Form';
+import Input from '../components/Input';
+import Label from '../components/Label';
 
 function Register() {
   const [error, setError] = useState('');
@@ -37,14 +41,14 @@ function Register() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <h2 className="mb-2 text-center">Register</h2>
-        <label htmlFor="username">Username</label>
-        <input id="usernmame" type="email" required ref={emailRef} />
-        <label htmlFor="password">Password</label>
-        <input id="password" type="password" required ref={passwordRef} />
-        <label htmlFor="confirmPassword">Confirm password</label>
-        <input
+      <Form onSubmit={handleSubmit}>
+        <h2 className="text-xl font-semibold mb-2 text-center">Register</h2>
+        <Label htmlFor="username">Username</Label>
+        <Input id="usernmame" type="email" required ref={emailRef} />
+        <Label htmlFor="password">Password</Label>
+        <Input id="password" type="password" required ref={passwordRef} />
+        <Label htmlFor="confirmPassword">Confirm password</Label>
+        <Input
           id="confirmPassword"
           type="password"
           required
@@ -57,10 +61,10 @@ function Register() {
             </p>
           </div>
         ) : null}
-        <button disabled={loading} type="submit">
+        <FormButton disabled={loading} type="submit">
           Register
-        </button>
-      </form>
+        </FormButton>
+      </Form>
       <p>
         Already have an account?{' '}
         <span

@@ -1,6 +1,10 @@
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/authContext';
+import Form from '../components/Form';
+import Label from '../components/Label';
+import Input from '../components/Input';
+import FormButton from '../components/FormButton';
 
 function Login() {
   const [error, setError] = useState('');
@@ -26,12 +30,12 @@ function Login() {
   }
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <h2 className="mb-2 text-center">Log in</h2>
-        <label htmlFor="username">Username</label>
-        <input id="usernmame" type="text" required ref={emailRef} />
-        <label htmlFor="password">Password</label>
-        <input id="password" type="password" required ref={passwordRef} />
+      <Form onSubmit={handleSubmit}>
+        <h2 className="text-xl font-semibold mb-2 text-center">Log in</h2>
+        <Label htmlFor="username">Username</Label>
+        <Input id="usernmame" type="text" required ref={emailRef} />
+        <Label htmlFor="password">Password</Label>
+        <Input id="password" type="password" required ref={passwordRef} />
         {error ? (
           <div className="bg-red-200 p-1 mb-2">
             <p className="text-center text-red-600 mb-1 font-semibold">
@@ -39,10 +43,10 @@ function Login() {
             </p>
           </div>
         ) : null}
-        <button disabled={loading} type="submit">
+        <FormButton disabled={loading} type="submit">
           Log in
-        </button>
-      </form>
+        </FormButton>
+      </Form>
       <p>
         Don't have an account?{' '}
         <span
