@@ -28,10 +28,15 @@ export function AuthProvider({ children }) {
     return appAuth.signInWithEmailAndPassword(email, password);
   }
 
+  function signOutUser() {
+    return appAuth.signOut();
+  }
+
   const value = {
     currentUser,
     register,
     loginUser,
+    signOutUser,
   };
 
   return (
