@@ -1,9 +1,6 @@
+import Layout from '../components/Layout/Layout';
 function UpdateProfile() {
-  return (
-    <div className="m-auto w-5/6 max-w-sm h-screen flex flex-col justify-center items-center">
-      Update profile page
-    </div>
-  );
+  return <Layout>Update profile page</Layout>;
 }
 
 export default UpdateProfile;

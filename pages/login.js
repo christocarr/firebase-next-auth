@@ -1,10 +1,11 @@
+import Layout from '../components/Layout/Layout';
 import Login from '../components/Login';
 
 function LoginPage() {
   return (
-    <div className="m-auto w-5/6 max-w-sm h-screen flex flex-col justify-center items-center">
+    <Layout>
       <Login />
-    </div>
+    </Layout>
   );
 }
 

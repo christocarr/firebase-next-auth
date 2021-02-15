@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import SignOut from '../components/SignOut';
 import Link from 'next/link';
 import { useAuth } from '../context/authContext';
+import Layout from '../components/Layout/Layout';
 import FormButton from '../components/FormButton';
 import Form from '../components/Form';
 
@@ -16,10 +17,10 @@ function userProfile() {
   }
 
   return (
-    <div className="m-auto w-5/6 max-w-sm h-screen flex flex-col justify-center items-center">
+    <Layout>
       {currentUser && <p>Email: {currentUser.email}</p>}
       <Link href="/update-profile">Update profile</Link>
-    </div>
+    </Layout>
   );
 }
 
