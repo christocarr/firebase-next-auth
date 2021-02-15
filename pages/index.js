@@ -1,25 +1,37 @@
-import Head from 'next/head';
+import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useAuth } from '../context/authContext';
+import Layout from '../components/Layout/Layout';
+import FormButton from '../components/FormButton';
 
 export default function Home() {
-  const { signOutUser } = useAuth;
+  const [error, setError] = useState('');
+  const { currentUser, signOutUser } = useAuth();
+  const router = useRouter();
+
+  //prevents user from going to index when logged out
+  if (!currentUser) {
+    router.push('/login');
+  }
+
+  async function handleSignOut() {
+    setError('');
+    try {
+      await signOutUser();
+      router.push('/login');
+    } catch (err) {
+      setError(err);
+    }
+  }
 
   return (
-    <div>
-      <Head>
-        <title>Create Next App</title>
-        {/* favicon 
-        <link rel="icon" href="" /> 
-        */}
-      </Head>
-      <Link href="/user-profile">Profile</Link>
-      <Link href="/login" OnClick={() => signOutUser}>
+    <Layout>
+      <Link href="/profile">Profile</Link>
+      <FormButton onClick={handleSignOut}>Sign out</FormButton>
+      {/* <Link href="/login" OnClick={() => handleSignOut}>
         Sign out
-      </Link>
-      <main className="w-screen h-screen flex flex-col justify-center items-center">
-        <div className="flex flex-col justify-center items-center w-5/6 max-w-sm"></div>
-      </main>
-    </div>
+      </Link> */}
+    </Layout>
   );
 }
