@@ -32,11 +32,16 @@ export function AuthProvider({ children }) {
     return appAuth.signOut();
   }
 
+  function passwordReset(email) {
+    return appAuth.sendPasswordResetEmail(email);
+  }
+
   const value = {
     currentUser,
     register,
     loginUser,
     signOutUser,
+    passwordReset,
   };
 
   return (

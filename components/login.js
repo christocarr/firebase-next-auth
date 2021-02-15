@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { useAuth } from '../context/authContext';
 import Form from '../components/Form';
 import Label from '../components/Label';
@@ -28,6 +29,7 @@ function Login() {
     }
     setLoading(false);
   }
+
   return (
     <>
       <Form onSubmit={handleSubmit}>
@@ -46,6 +48,14 @@ function Login() {
         <FormButton disabled={loading} type="submit">
           Log in
         </FormButton>
+        <p>
+          <span
+            className="underline text-blue-700 cursor-pointer"
+            onClick={() => router.push('/forgot-password')}
+          >
+            Forgot password
+          </span>
+        </p>
       </Form>
       <p>
         Don't have an account?{' '}
