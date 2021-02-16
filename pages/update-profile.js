@@ -1,6 +1,12 @@
 import Layout from '../components/Layout/Layout';
+import UpdateEmailPassword from '../components/UpdateEmailPassword';
+
 function UpdateProfile() {
-  return <Layout>Update profile page</Layout>;
+  return (
+    <Layout>
+      <UpdateEmailPassword />
+    </Layout>
+  );
 }
 
 export default UpdateProfile;
