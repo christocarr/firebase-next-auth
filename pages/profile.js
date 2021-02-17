@@ -1,25 +1,27 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import SignOut from '../components/SignOut';
 import Link from 'next/link';
 import { useAuth } from '../context/authContext';
 import Layout from '../components/Layout/Layout';
-import FormButton from '../components/FormButton';
-import Form from '../components/Form';
 
 function userProfile() {
   const { currentUser } = useAuth();
   const router = useRouter();
 
   //prevents user from going to index when logged out
-  if (!currentUser) {
-    router.push('/login');
-  }
+  useEffect(() => {
+    if (!currentUser) {
+      router.push('/login');
+    }
+  }, []);
 
   return (
     <Layout>
+      <h2 className="text-xl font-semibold mb-2 text-center">User profile</h2>
       {currentUser && <p>Email: {currentUser.email}</p>}
       <Link href="/update-profile">Update profile</Link>
+      <SignOut />
     </Layout>
   );
 }
