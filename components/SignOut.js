@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import { useAuth } from '../context/authContext';
 
 function SignOut() {
@@ -8,7 +7,7 @@ function SignOut() {
 
   const router = useRouter();
 
-  const { currentUser, signOutUser } = useAuth();
+  const { signOutUser } = useAuth();
 
   async function handleSignOut() {
     try {
@@ -21,16 +20,6 @@ function SignOut() {
   }
   return (
     <>
-      <h2 className="mb-2 text-center">User Profile</h2>
-      <p>Email: </p>
-      {error ? (
-        <div className="bg-red-200 p-1 mb-2">
-          <p className="text-center text-red-600 mb-1 font-semibold">{error}</p>
-        </div>
-      ) : null}
-      <Link href="/update-profile" passHref>
-        <button>Update profile</button>
-      </Link>
       <button onClick={handleSignOut}>Sign out</button>
     </>
   );
