@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/authContext';
 import FormButton from './FormButton';
@@ -16,6 +16,12 @@ function UpdateEmailPassword() {
   const router = useRouter();
 
   const { currentUser, updateEmail, updatePassword } = useAuth();
+
+  useEffect(() => {
+    if (!currentUser) {
+      router.push('/login');
+    }
+  }, []);
 
   function handleSubmit(ev) {
     ev.preventDefault();
@@ -60,6 +66,7 @@ function UpdateEmailPassword() {
           required
           ref={emailRef}
           placeholder="email"
+          //   defaultValue={currentUser.email}
         />
         <Label htmlFor="password">Password</Label>
         <Input
@@ -89,7 +96,7 @@ function UpdateEmailPassword() {
       <p>
         <span
           className="underline text-blue-700 cursor-pointer"
-          onClick={() => router.push('/')}
+          onClick={() => router.push('/profile')}
         >
           Cancel
         </span>
