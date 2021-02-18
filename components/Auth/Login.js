@@ -1,11 +1,11 @@
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useAuth } from '../context/authContext';
-import Form from '../components/Form';
-import Label from '../components/Label';
-import Input from '../components/Input';
-import FormButton from '../components/FormButton';
+import { useAuth } from '../../context/authContext';
+import Form from '../Form';
+import Label from '../Label';
+import Input from '../Input';
+import FormButton from '../FormButton';
 
 function Login() {
   const [error, setError] = useState('');

@@ -1,5 +1,5 @@
 import Layout from '../components/Layout/Layout';
-import UpdateEmailPassword from '../components/UpdateEmailPassword';
+import UpdateEmailPassword from '../components/Auth/UpdateEmailPassword';
 
 function UpdateProfile() {
   return (

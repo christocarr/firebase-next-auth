@@ -1,10 +1,10 @@
 import { useRef, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useAuth } from '../context/authContext';
-import FormButton from './FormButton';
-import Form from '../components/Form';
-import Input from '../components/Input';
-import Label from '../components/Label';
+import { useAuth } from '../../context/authContext';
+import FormButton from '../FormButton';
+import Form from '../Form';
+import Input from '../Input';
+import Label from '../Label';
 
 function UpdateEmailPassword() {
   const [error, setError] = useState('');

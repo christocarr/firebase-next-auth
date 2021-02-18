@@ -1,5 +1,5 @@
 import Layout from '../components/Layout/Layout';
-import ResetPassword from '../components/ResetPassord';
+import ResetPassword from '../components/Auth/ResetPassord';
 
 function FogotPassword() {
   return (

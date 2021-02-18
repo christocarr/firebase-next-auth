@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/authContext';
@@ -11,27 +11,11 @@ export default function Home() {
   const router = useRouter();
 
   //prevents user from going to index when logged out
-  if (!currentUser) {
-    router.push('/login');
-  }
-
-  async function handleSignOut() {
-    setError('');
-    try {
-      await signOutUser();
+  useEffect(() => {
+    if (!currentUser) {
       router.push('/login');
-    } catch (err) {
-      setError(err);
     }
-  }
+  }, []);
 
-  return (
-    <Layout>
-      <Link href="/profile">Profile</Link>
-      <FormButton onClick={handleSignOut}>Sign out</FormButton>
-      {/* <Link href="/login" OnClick={() => handleSignOut}>
-        Sign out
-      </Link> */}
-    </Layout>
-  );
+  return <Layout></Layout>;
 }

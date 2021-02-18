@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
-import Form from './Form';
-import Label from './Label';
-import Input from './Input';
-import FormButton from './FormButton';
-import { useAuth } from '../context/authContext';
+import Form from '../Form';
+import Label from '../Label';
+import Input from '../Input';
+import FormButton from '../FormButton';
+import { useAuth } from '../../context/authContext';
 
 function ResetPassword() {
   const [message, setMessage] = useState(null);

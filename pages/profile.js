@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import SignOut from '../components/SignOut';
+import SignOut from '../components/Auth/SignOut';
 import Link from 'next/link';
 import { useAuth } from '../context/authContext';
 import Layout from '../components/Layout/Layout';
