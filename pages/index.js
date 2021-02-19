@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/authContext';
 import Layout from '../components/Layout/Layout';
-import FormButton from '../components/FormButton';
+import ImageGrid from '../components/ImageGrid';
 
 export default function Home() {
   const [error, setError] = useState('');
@@ -17,5 +16,9 @@ export default function Home() {
     }
   }, []);
 
-  return <Layout></Layout>;
+  return (
+    <Layout>
+      <ImageGrid />
+    </Layout>
+  );
 }
