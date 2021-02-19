@@ -1,13 +1,18 @@
 import { useState, useEffect } from 'react';
-import { appStorage } from '../firebase';
+import { appStorage, appFirestore } from '../firebase';
+import { useAuth } from '../context/authContext';
 
 const useAppStorage = (file) => {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [error, setError] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
 
+  const { currentUser } = useAuth();
+
   useEffect(() => {
     const storageRef = appStorage.ref();
+
+    const db = appFirestore.collection('images');
 
     const uploadTask = storageRef.child(file.name).put(file);
 
@@ -20,10 +25,16 @@ const useAppStorage = (file) => {
       (error) => {
         setError(error);
       },
-      () => {
-        uploadTask.snapshot.ref.getDownloadURL().then((url) => {
-          setImageUrl(url);
-        });
+      async () => {
+        const url = await uploadTask.snapshot.ref.getDownloadURL();
+        setImageUrl(url);
+        db.add({ url: url, user: currentUser.email })
+          .then((docRef) => {
+            console.log(docRef);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       }
     );
   }, [file]);
