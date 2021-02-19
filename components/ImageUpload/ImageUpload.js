@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { Form, Label, Input, FormButton } from '../Form/';
-import Progress from '../Progress';
+import Progress from './Progress';
 
 function ImageUpload() {
   const [imageFile, setImageFile] = useState(null);
