@@ -16,10 +16,13 @@ function Header() {
       )}
       {/* only show nav when a user is signed in */}
       {currentUser && (
-        <nav>
-          <ul>
+        <nav className="w-44">
+          <ul className="flex flex-row-reverse justify-between">
             <li>
               <Link href="/profile">Profile</Link>
+            </li>
+            <li>
+              <Link href="/image-upload">Add image</Link>
             </li>
           </ul>
         </nav>

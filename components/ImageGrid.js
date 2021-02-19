@@ -4,15 +4,21 @@ import Image from 'next/image';
 function ImageGrid() {
   const docs = useAppFirestore('images');
 
-  console.log(docs);
-
   return (
-    docs &&
-    docs.map((doc) => (
-      <div key={doc.id}>
-        <Image src={doc.url} width="200" height="200" />
-      </div>
-    ))
+    <div className="flex flex-wrap justify-evenly w-full">
+      {docs &&
+        docs.map((doc) => (
+          <div key={doc.id} className="flex flex-col justify-center">
+            <Image
+              src={doc.url}
+              width="200"
+              height="200"
+              alt={`uploaded by ${doc.user}`}
+            />
+            <p>{doc.user}</p>
+          </div>
+        ))}
+    </div>
   );
 }
 
