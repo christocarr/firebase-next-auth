@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import useAppStorage from '../hooks/useAppStorage';
+import useAppStorage from '../../hooks/useAppStorage';
 
 function Progress({ file, setFile }) {
   const { imageUrl, uploadProgress } = useAppStorage(file);
