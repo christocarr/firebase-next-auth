@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { appStorage, appFirestore } from '../firebase';
+import { appStorage, appFirestore, timestamp } from '../firebase';
 import { useAuth } from '../context/authContext';
 
 const useAppStorage = (file) => {
@@ -28,7 +28,7 @@ const useAppStorage = (file) => {
       async () => {
         const url = await uploadTask.snapshot.ref.getDownloadURL();
         setImageUrl(url);
-        db.add({ url: url, user: currentUser.email })
+        db.add({ url: url, user: currentUser.email, createdAt: timestamp() })
           .then((docRef) => {
             console.log(docRef);
           })
