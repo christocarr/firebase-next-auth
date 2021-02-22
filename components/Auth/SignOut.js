@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { useAuth } from '../../context/authContext';
+import { Context } from '../../context/Context';
 
 function SignOut() {
   const [error, setError] = useState('');
 
   const router = useRouter();
 
-  const { signOutUser } = useAuth();
+  const { signOutUser } = Context();
 
   async function handleSignOut() {
     try {

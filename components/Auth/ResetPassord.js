@@ -1,12 +1,12 @@
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
-import { useAuth } from '../../context/authContext';
+import { Context } from '../../context/Context';
 import { Form, Label, Input, FormButton } from '../Form/';
 
 function ResetPassword() {
   const [message, setMessage] = useState(null);
   const [error, setError] = useState('');
-  const { passwordReset } = useAuth();
+  const { passwordReset } = Context();
   const emailRef = useRef();
   const router = useRouter();
 

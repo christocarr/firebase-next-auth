@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
-import { useAuth } from '../../context/authContext';
+import { Context } from '../../context/Context';
 import { Form, Label, Input, FormButton } from '../Form/';
 
 function Register() {
@@ -12,7 +12,7 @@ function Register() {
 
   const router = useRouter();
 
-  const { register, currentUser } = useAuth();
+  const { register, currentUser } = Context();
 
   async function handleSubmit(ev) {
     ev.preventDefault();

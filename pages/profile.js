@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { SignOut } from '../components/Auth';
 import Link from 'next/link';
-import { useAuth } from '../context/authContext';
+import { Context } from '../context/Context';
 import Layout from '../components/Layout/Layout';
 
 function userProfile() {
-  const { currentUser } = useAuth();
+  const { currentUser } = Context();
   const router = useRouter();
 
   //prevents user from going to index when logged out

@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useAuth } from '../../context/authContext';
+import { Context } from '../../context/Context';
 import { Form, Label, Input, FormButton } from '../Form/';
 
 function UpdateEmailPassword() {
@@ -12,7 +12,7 @@ function UpdateEmailPassword() {
 
   const router = useRouter();
 
-  const { currentUser, updateEmail, updatePassword } = useAuth();
+  const { currentUser, updateEmail, updatePassword } = Context();
 
   useEffect(() => {
     if (!currentUser) {

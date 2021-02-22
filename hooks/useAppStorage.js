@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { appStorage, appFirestore, timestamp } from '../firebase';
-import { useAuth } from '../context/authContext';
+import { Context } from '../context/Context';
 
 const useAppStorage = (file) => {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [error, setError] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
 
-  const { currentUser } = useAuth();
+  const { currentUser } = Context();
 
   useEffect(() => {
     const storageRef = appStorage.ref();

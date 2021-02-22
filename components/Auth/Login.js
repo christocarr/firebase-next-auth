@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/router';
-import { useAuth } from '../../context/authContext';
+import { Context } from '../../context/Context';
 import { Form, Label, Input, FormButton } from '../Form/';
 
 function Login() {
@@ -11,7 +11,7 @@ function Login() {
 
   const router = useRouter();
 
-  const { loginUser } = useAuth();
+  const { loginUser } = Context();
 
   async function handleSubmit(ev) {
     ev.preventDefault();

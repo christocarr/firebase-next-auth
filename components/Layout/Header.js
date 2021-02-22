@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-import { useAuth } from '../../context/authContext';
+import { Context } from '../../context/Context';
 
 function Header() {
-  const { currentUser } = useAuth();
+  const { currentUser } = Context();
   return (
     <header className="flex justify-between items-center h-20 p-5 border-b border-gray-200">
       {/* only have clickabel logo when a user is signed in */}

@@ -1,15 +1,27 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { appAuth } from '../firebase';
 
-const AuthContext = React.createContext();
+// const AuthContext = React.createContext();
+// const modalContext = React.createContext()
 
-export function useAuth() {
-  return useContext(AuthContext);
+const AppContext = React.createContext();
+
+// export function useAuth() {
+//   return useContext(AuthContext);
+// }
+
+// export function modalContext() {
+//   return useContext(modalContext)
+// }
+
+export function Context() {
+  return useContext(AppContext);
 }
 
-export function AuthProvider({ children }) {
+export function Provider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const unsubscribe = appAuth.onAuthStateChanged((user) => {
@@ -19,6 +31,10 @@ export function AuthProvider({ children }) {
 
     return unsubscribe;
   }, []);
+
+  function handleShowModal() {
+    setShowModal(!showModal);
+  }
 
   function register(email, password) {
     return appAuth.createUserWithEmailAndPassword(email, password);
@@ -45,6 +61,7 @@ export function AuthProvider({ children }) {
   }
 
   const value = {
+    handleShowModal,
     currentUser,
     register,
     loginUser,
@@ -55,8 +72,8 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={value}>
+    <AppContext.Provider value={value}>
       {!loading && children}
-    </AuthContext.Provider>
+    </AppContext.Provider>
   );
 }
