@@ -50,7 +50,7 @@ function ResetPassword() {
       <p>
         Back to login{' '}
         <span
-          className="underline text-blue-700 cursor-pointer"
+          className=" text-blue-500 cursor-pointer"
           onClick={() => router.push('/login')}
         >
           Log in

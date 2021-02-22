@@ -44,9 +44,9 @@ function Login() {
         <FormButton disabled={loading} type="submit">
           Log in
         </FormButton>
-        <p>
+        <p className="text-center">
           <span
-            className="underline text-blue-700 cursor-pointer"
+            className=" text-blue-500 cursor-pointer "
             onClick={() => router.push('/forgot-password')}
           >
             Forgot password
@@ -56,7 +56,7 @@ function Login() {
       <p>
         Don't have an account?{' '}
         <span
-          className="underline text-blue-700 cursor-pointer"
+          className=" text-blue-500 cursor-pointer"
           onClick={() => router.push('/register')}
         >
           Register

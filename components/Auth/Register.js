@@ -65,7 +65,7 @@ function Register() {
       <p>
         Already have an account?{' '}
         <span
-          className="underline text-blue-700 cursor-pointer"
+          className=" text-blue-500 cursor-pointer"
           onClick={() => router.push('/login')}
         >
           Log in
