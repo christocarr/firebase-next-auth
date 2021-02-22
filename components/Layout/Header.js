@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Context } from '../../context/Context';
 
 function Header() {
-  const { currentUser } = Context();
+  const { currentUser, toggleModal } = Context();
   return (
     <header className="flex justify-between items-center h-20 p-5 border-b border-gray-200">
       {/* only have clickabel logo when a user is signed in */}
@@ -22,7 +22,8 @@ function Header() {
               <Link href="/profile">Profile</Link>
             </li>
             <li>
-              <Link href="/image-upload">Add image</Link>
+              {/* <Link href="/image-upload">Add image</Link> */}
+              <button onClick={toggleModal}>Add image</button>
             </li>
           </ul>
         </nav>

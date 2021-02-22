@@ -32,8 +32,8 @@ export function Provider({ children }) {
     return unsubscribe;
   }, []);
 
-  function handleShowModal() {
-    setShowModal(!showModal);
+  function toggleModal() {
+    setShowModal((prevState) => !prevState);
   }
 
   function register(email, password) {
@@ -61,7 +61,8 @@ export function Provider({ children }) {
   }
 
   const value = {
-    handleShowModal,
+    toggleModal,
+    showModal,
     currentUser,
     register,
     loginUser,

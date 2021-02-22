@@ -2,12 +2,15 @@ import { useState, useRef } from 'react';
 import Link from 'next/link';
 import { Form, Label, Input, FormButton } from '../Form/';
 import Progress from './Progress';
+import { Context } from '../../context/Context';
 
 function ImageUpload() {
   const [imageFile, setImageFile] = useState(null);
   const [error, setError] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
   const fileRef = useRef();
+
+  const { toggleModal } = Context();
 
   const types = ['image/png', 'image/jpeg', 'image/jpg'];
 
@@ -34,7 +37,6 @@ function ImageUpload() {
       {selectedFile && (
         <Progress file={selectedFile} setFile={setSelectedFile} />
       )}
-      <Label>Image file</Label>
       <Input
         type="file"
         onChange={handleChange}
@@ -47,7 +49,9 @@ function ImageUpload() {
         </div>
       ) : null}
       <FormButton type="submit">Upload</FormButton>
-      <Link href="">Cancel</Link>
+      <button className="text-blue-500" onClick={toggleModal}>
+        Cancel
+      </button>
     </Form>
   );
 }
