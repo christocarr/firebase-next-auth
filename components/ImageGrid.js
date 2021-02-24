@@ -1,21 +1,23 @@
 import useAppFirestore from '../hooks/useAppFirestore';
+import { Context } from '../context/Context';
+
 import Image from 'next/image';
 
-function ImageGrid() {
+function ImageGrid({ images }) {
   const docs = useAppFirestore('images');
 
   return (
     <div className="flex flex-wrap justify-evenly w-full">
-      {docs &&
-        docs.map((doc) => (
-          <div key={doc.id} className="flex flex-col justify-center">
+      {images &&
+        images.map((image) => (
+          <div key={image.id} className="flex flex-col justify-center">
             <Image
-              src={doc.url}
+              src={image.url}
               width="200"
               height="200"
-              alt={`uploaded by ${doc.user}`}
+              alt={`uploaded by ${image.user}`}
             />
-            <p>{doc.user}</p>
+            <p>{image.user}</p>
           </div>
         ))}
     </div>
