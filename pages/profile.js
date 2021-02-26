@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { SignOut } from '../components/Auth';
 import Link from 'next/link';
 import { Context } from '../context/Context';
 import Layout from '../components/Layout/Layout';
@@ -29,7 +28,6 @@ function userProfile() {
       {currentUser && <p>Email: {currentUser.email}</p>}
       <Link href="/update-profile">Update profile</Link>
       <ImageGrid images={images} />
-      <SignOut />
     </Layout>
   );
 }
