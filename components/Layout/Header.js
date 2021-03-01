@@ -23,24 +23,24 @@ function Header() {
       )}
       {/* only show nav when a user is signed in */}
       {currentUser && (
-        <nav className="w-44">
+        <nav className="w-52">
           <ul className="flex flex-row-reverse justify-between">
-            <li>
-              {/* <Link href="/profile">Profile</Link> */}
-              <button onClick={handleOpenDropdown}>Profile</button>
-              {openDropdown && (
-                <ul className="flex flex-col absolute">
-                  <li>
-                    <Link href="/profile">Profile</Link>
-                  </li>
-                  <li>
-                    <SignOut />
-                  </li>
-                </ul>
-              )}
+            <li className="w-1/2">
+              <div className="flex justify-center relative">
+                <button onClick={handleOpenDropdown}>Avatar</button>
+                {openDropdown && (
+                  <ul className="flex flex-col items-center absolute top-6 left-0 py-1 bg-white w-full">
+                    <li>
+                      <Link href="/profile">Profile</Link>
+                    </li>
+                    <li>
+                      <SignOut />
+                    </li>
+                  </ul>
+                )}
+              </div>
             </li>
-            <li>
-              {/* <Link href="/image-upload">Add image</Link> */}
+            <li className="w-1/2">
               <button onClick={toggleModal}>Add image</button>
             </li>
           </ul>
