@@ -32,7 +32,6 @@ function Header() {
                 <button
                   onClick={handleOpenDropdown}
                   className="py-1 px-2 border-b-0"
-                  ref={AvatarRef}
                 >
                   Avatar
                 </button>
