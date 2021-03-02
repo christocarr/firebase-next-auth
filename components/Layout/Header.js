@@ -2,9 +2,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Context } from '../../context/Context';
 import { SignOut } from '../Auth';
+import Dropdown from './Dropdown';
 
 function Header() {
   const [openDropdown, setOpenDropdown] = useState(false);
+
   const { currentUser, toggleModal } = Context();
 
   const handleOpenDropdown = () => {
@@ -27,21 +29,31 @@ function Header() {
           <ul className="flex flex-row-reverse justify-between">
             <li className="w-1/2">
               <div className="flex justify-center relative">
-                <button onClick={handleOpenDropdown}>Avatar</button>
+                <button
+                  onClick={handleOpenDropdown}
+                  className="py-1 px-2 border-b-0"
+                  ref={AvatarRef}
+                >
+                  Avatar
+                </button>
                 {openDropdown && (
-                  <ul className="flex flex-col items-center absolute top-6 left-0 py-1 bg-white w-full">
-                    <li>
-                      <Link href="/profile">Profile</Link>
-                    </li>
-                    <li>
-                      <SignOut />
-                    </li>
-                  </ul>
+                  <Dropdown>
+                    <ul>
+                      <li className="p-1">
+                        <Link href="/profile">Profile</Link>
+                      </li>
+                      <li className="p-1">
+                        <SignOut />
+                      </li>
+                    </ul>
+                  </Dropdown>
                 )}
               </div>
             </li>
             <li className="w-1/2">
-              <button onClick={toggleModal}>Add image</button>
+              <button onClick={toggleModal} className="py-1 px-2">
+                Add image
+              </button>
             </li>
           </ul>
         </nav>
