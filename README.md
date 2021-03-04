@@ -37,3 +37,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 Add icons for add image and profile
 Close dropdown when button/icon does not have focus
+Put protected route checks on pages
