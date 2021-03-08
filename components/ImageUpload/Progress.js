@@ -18,7 +18,7 @@ function Progress({ file, setFile }) {
   }, [imageUrl, uploadProgress]);
 
   return (
-    <div className="w-full">
+    <div className="w-full mb-2">
       <div
         className="h-1 bg-blue-500 rounded"
         style={{ width: `${uploadProgress}%` }}
