@@ -14,15 +14,13 @@ function Layout({ children }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Header />
-      <main className="w-screen h-screen flex flex-col justify-center items-center">
-        <div className="flex flex-col justify-center items-center w-full max-w-xl p-5">
-          {children}
-          {showModal && (
-            <Modal>
-              <ImageUpload />
-            </Modal>
-          )}
-        </div>
+      <main className="flex flex-col justify-center items-center max-w-screen-lg m-auto p-5">
+        {children}
+        {showModal && (
+          <Modal>
+            <ImageUpload />
+          </Modal>
+        )}
       </main>
     </>
   );
