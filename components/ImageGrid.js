@@ -10,14 +10,16 @@ function ImageGrid({ images }) {
     <div className="flex flex-wrap justify-evenly w-full">
       {images &&
         images.map((image) => (
-          <div key={image.id} className="flex flex-col justify-center">
+          <div
+            key={image.id}
+            className="flex flex-col justify-center relative w-1/4 h-48"
+          >
             <Image
               src={image.url}
-              width="200"
-              height="200"
+              layout="fill"
+              objectFit="cover"
               alt={`uploaded by ${image.user}`}
             />
-            <p>{image.user}</p>
           </div>
         ))}
     </div>
