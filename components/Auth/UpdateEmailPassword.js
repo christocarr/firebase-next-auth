@@ -90,14 +90,6 @@ function UpdateEmailPassword() {
           Update
         </FormButton>
       </Form>
-      <p>
-        <span
-          className="underline text-blue-700 cursor-pointer"
-          onClick={() => router.push('/profile')}
-        >
-          Cancel
-        </span>
-      </p>
     </>
   );
 }
