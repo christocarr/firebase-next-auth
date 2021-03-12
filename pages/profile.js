@@ -5,6 +5,7 @@ import { Context } from '../context/Context';
 import Layout from '../components/Layout/Layout';
 import ImageGrid from '../components/ImageGrid';
 import useAppFirestore from '../hooks/useAppFirestore';
+import { FormButton } from '../components/Form';
 
 function userProfile() {
   const [images, setImages] = useState();
@@ -25,8 +26,12 @@ function userProfile() {
   return (
     <Layout>
       <h2 className="text-xl font-semibold mb-2 text-center">User profile</h2>
-      {currentUser && <p>Email: {currentUser.email}</p>}
-      <Link href="/update-profile">Update profile</Link>
+      <div>
+        {currentUser && <p className="mb-2">{currentUser.email}</p>}
+        <FormButton>
+          <Link href="/update-profile">Update profile</Link>
+        </FormButton>
+      </div>
       <ImageGrid images={images} />
     </Layout>
   );
