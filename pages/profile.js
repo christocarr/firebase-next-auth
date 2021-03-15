@@ -29,7 +29,7 @@ function userProfile() {
       <div>
         {currentUser && <p className="mb-2">{currentUser.email}</p>}
         <FormButton>
-          <Link href="/update-profile">Update profile</Link>
+          <Link href="/update-profile">Settings</Link>
         </FormButton>
       </div>
       <ImageGrid images={images} />
