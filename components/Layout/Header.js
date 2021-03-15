@@ -42,6 +42,9 @@ function Header() {
                         <Link href="/profile">Profile</Link>
                       </li>
                       <li className="p-1">
+                        <Link href="/update-profile">Settings</Link>
+                      </li>
+                      <li className="p-1">
                         <SignOut />
                       </li>
                     </ul>
