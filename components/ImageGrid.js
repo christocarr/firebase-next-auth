@@ -12,7 +12,7 @@ function ImageGrid({ images }) {
         images.map((image) => (
           <div
             key={image.id}
-            className="flex flex-col justify-center relative w-1/4 h-48"
+            className="flex flex-col justify-center relative w-full h-52 sm:w-2/5 md:w-3/5 sm:h-72 md:h-80"
           >
             <Image
               src={image.url}
