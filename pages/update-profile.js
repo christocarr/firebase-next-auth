@@ -13,7 +13,6 @@ function UpdateProfile() {
         <FormButton onClick={() => router.push('/profile')}>Back</FormButton>
       </div>
       <UpdateEmailPassword />
-      <UpdateProfileImage />
     </Layout>
   );
 }
